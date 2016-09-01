@@ -20,3 +20,4 @@ var user = {
 };
 var user2 = new Student("Jane", "M.", "User");
 document.body.innerHTML = greeter(user2);
+//# sourceMappingURL=greeter.js.map
