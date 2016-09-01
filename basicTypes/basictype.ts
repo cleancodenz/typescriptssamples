@@ -1,4 +1,4 @@
-
+(function(){
 // using let(ES6) instead of using, as this will create a real block level {} variable
 // so within the block it will be different variable if name is same
 
@@ -88,9 +88,7 @@ let strLength: number = (<string>someValue).length;
 let someValue1: any = "this is a string";
 let strLength1: number = (someValue1 as string).length;
 
-
-
-
+})()
 
 
 
