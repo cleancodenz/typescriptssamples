@@ -48,6 +48,7 @@
     //This creates new variables a and b from o.a and o.b. Notice that you can skip c if you don’t need it.
     var a = o.a, b = o.b;
     //Notice that we had to surround this statement with parentheses. JavaScript normally parses a { as the start of block.
+    // this does not change original value    
     (_a = { a: "baz", b: 101 }, a = _a.a, b = _a.b, _a);
     console.log(a);
     console.log(b);
