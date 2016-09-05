@@ -56,7 +56,7 @@ color = 'red';
 // template strings
 let fullName: string = 'Bob Bobbington';
 let age: number = 37;
-let sentence: string = `Hello, my name is ${ fullName }`
+let sentence: string = ` Hello, my name is ${ fullName }`
 console.log(sentence);
 
 //array

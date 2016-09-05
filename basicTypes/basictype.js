@@ -41,7 +41,7 @@
     // template strings
     var fullName = 'Bob Bobbington';
     var age = 37;
-    var sentence = "Hello, my name is " + fullName;
+    var sentence = " Hello, my name is " + fullName;
     console.log(sentence);
     //array
     var list = [1, 2, 3];

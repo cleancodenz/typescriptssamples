@@ -128,7 +128,7 @@
     // Hybrid types, that acts as both function and an object
     interface Counter {
         (start: number): string; // this is function interface
-        interval: number; // the following two are class interfaces
+        intervals: number; // the following two are class interfaces
         reset(): void;
     }
 
@@ -144,7 +144,7 @@
             return 'done';
         };
      
-        counter.interval = 123;
+        counter.intervals = 123;
         counter.reset = function () { console.log('in the reset function'); };
         return counter;
     }
@@ -152,7 +152,7 @@
     let c: Counter = getCounter(); 
     c(10); // use it as function
     c.reset(); // use it as an object
-    c.interval = 5.0;
+    c.intervals = 5.0;
 
     //Interfaces Extending Classes
     /**

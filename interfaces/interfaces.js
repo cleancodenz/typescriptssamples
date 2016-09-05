@@ -72,21 +72,21 @@ var __extends = (this && this.__extends) || function (d, b) {
     // the difference is : it is not using implements nor extends
     // it is using :  
     // What it needs to be done in this case:
-    //   must return an instance with propert
+    //   must return an instance with type as Counter which itself is a function and object too
     function getCounter() {
-        // let counter = <Counter>function (start: number) {
-        //     console.log('in the counter function');
-        //     return 'done';
-        // };
-        var counter;
-        counter.interval = 123;
+        // must type cast it to Counter which is a function with dedicated intrface
+        var counter = function (start) {
+            console.log('in the counter function');
+            return 'done';
+        };
+        counter.intervals = 123;
         counter.reset = function () { console.log('in the reset function'); };
         return counter;
     }
     var c = getCounter();
     c(10); // use it as function
     c.reset(); // use it as an object
-    c.interval = 5.0;
+    c.intervals = 5.0;
     //Interfaces Extending Classes
     /**
      * When an interface type extends a class type it inherits the members of the class but not their implementations. It is as if the interface had declared all of the members of the class without providing an implementation. Interfaces inherit even the private and protected members of a base class. This means that when you create an interface that extends a class with private or protected members, that interface type can only be implemented by that class or a subclass of it.
