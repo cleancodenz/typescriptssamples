@@ -104,6 +104,7 @@ var __extends = (this && this.__extends) || function (d, b) {
         return a.prototype.keeper;
     }
     // Lion passed, not instance, a.prototype.keeper has not been defined
+    // not a good example, but example of type inference
     var keeper = findKeeper(Lion);
     keeper.nametag = "lion keeper2"; // typechecks!
 })();
