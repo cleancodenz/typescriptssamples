@@ -1,3 +1,8 @@
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 (function () {
     // Where for padding only two types are accepted
     function padLeft(value, padding) {
@@ -112,10 +117,13 @@
     //Intersection types are closely related to union types, but they are used very differently. An intersection type
     //That means an object of this type will have all members of both types
     function extend(first, second) {
+        // this creates an empty object, even though it is declared as intesection type
         var result = {};
+        // this loops through all properties for first, includes properties as functions
         for (var id in first) {
             result[id] = first[id];
         }
+        // this loops through all properties for first, includes properties as functions
         for (var id in second) {
             if (!result.hasOwnProperty(id)) {
                 result[id] = second[id];
@@ -140,5 +148,78 @@
     var jim = extend(new Person("Jim"), new ConsoleLogger());
     var n = jim.name;
     jim.log();
+    function getName(n) {
+        if (typeof n === "string") {
+            return n;
+        }
+        else {
+            return n();
+        }
+    }
+    var people;
+    var s = people.name;
+    var s = people.next.name;
+    var s = people.next.next.name;
+    var s = people.next.next.next.name;
+    var UIElement = (function () {
+        function UIElement() {
+        }
+        UIElement.prototype.animate = function (dx, dy, easing) {
+            if (easing === "ease-in") {
+            }
+            else if (easing === "ease-out") {
+            }
+            else if (easing === "ease-in-out") {
+            }
+            else {
+            }
+        };
+        return UIElement;
+    }());
+    var button = new UIElement();
+    button.animate(0, 0, "ease-in");
+    // button.animate(0, 0, "uneasy"); // error: "uneasy" is not allowed here
+    // Polymorphic this types
+    //A polymorphic this type represents a type that is the subtype of the containing class or interface. This is called F-bounded polymorphism. This makes hierarchical fluent interfaces much easier to express,
+    var BasicCalculator = (function () {
+        function BasicCalculator(value) {
+            if (value === void 0) { value = 0; }
+            this.value = value;
+        }
+        BasicCalculator.prototype.currentValue = function () {
+            return this.value;
+        };
+        BasicCalculator.prototype.add = function (operand) {
+            this.value += operand;
+            return this;
+        };
+        BasicCalculator.prototype.multiply = function (operand) {
+            this.value *= operand;
+            return this;
+        };
+        return BasicCalculator;
+    }());
+    var v = new BasicCalculator(2)
+        .multiply(5)
+        .add(1)
+        .currentValue();
+    var ScientificCalculator = (function (_super) {
+        __extends(ScientificCalculator, _super);
+        function ScientificCalculator(value) {
+            if (value === void 0) { value = 0; }
+            _super.call(this, value);
+        }
+        ScientificCalculator.prototype.sin = function () {
+            this.value = Math.sin(this.value);
+            return this;
+        };
+        return ScientificCalculator;
+    }(BasicCalculator));
+    var v2 = new ScientificCalculator(2)
+        .multiply(5)
+        .sin()
+        .add(1)
+        .currentValue();
+    //Without this types, ScientificCalculator would not have been able to extend BasicCalculator and keep the fluent interface. multiply would have returned BasicCalculator, which doesn’t have the sin method. However, with this types, multiply returns this, which is ScientificCalculator here.
 })();
 //# sourceMappingURL=advancedTypes.js.map
