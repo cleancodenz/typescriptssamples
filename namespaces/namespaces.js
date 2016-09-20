@@ -27,14 +27,14 @@ var Validation1;
 // Some samples to try
 var strings1 = ["Hello", "98052", "101"];
 // Validators to use
-var validators1 = {};
-validators["ZIP code"] = new Validation1.ZipCodeValidator();
-validators["Letters only"] = new Validation1.LettersOnlyValidator();
+var validators_1 = {};
+validators_1["ZIP code"] = new Validation1.ZipCodeValidator();
+validators_1["Letters only"] = new Validation1.LettersOnlyValidator();
 // Show whether each string passed each validator
-for (var _i = 0, strings_1 = strings; _i < strings_1.length; _i++) {
-    var s = strings_1[_i];
-    for (var name in validators) {
-        console.log("\"" + s + "\" - " + (validators[name].isAcceptable(s) ? "matches" : "does not match") + " " + name);
+for (var _i = 0, strings1_1 = strings1; _i < strings1_1.length; _i++) {
+    var s = strings1_1[_i];
+    for (var name in validators_1) {
+        console.log("\"" + s + "\" - " + (validators_1[name].isAcceptable(s) ? "matches" : "does not match") + " " + name);
     }
 }
 //# sourceMappingURL=namespaces.js.map

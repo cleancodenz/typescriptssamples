@@ -29,13 +29,13 @@ namespace Validation1 {
 let strings1 = ["Hello", "98052", "101"];
 
 // Validators to use
-let validators1: { [s: string]: Validation1.StringValidator; } = {};
-validators["ZIP code"] = new Validation1.ZipCodeValidator();
-validators["Letters only"] = new Validation1.LettersOnlyValidator();
+let validators_1: { [s: string]: Validation1.StringValidator; } = {};
+validators_1["ZIP code"] = new Validation1.ZipCodeValidator();
+validators_1["Letters only"] = new Validation1.LettersOnlyValidator();
 
 // Show whether each string passed each validator
-for (let s of strings) {
-    for (var name in validators) {
-        console.log(`"${ s }" - ${ validators[name].isAcceptable(s) ? "matches" : "does not match" } ${ name }`);
+for (let s of strings1) {
+    for (var name in validators_1) {
+        console.log(`"${ s }" - ${ validators_1[name].isAcceptable(s) ? "matches" : "does not match" } ${ name }`);
     }
 }
