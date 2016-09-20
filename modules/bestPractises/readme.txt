@@ -1,3 +1,7 @@
+I choose UMD module system instead of commonjs which is for Node.JS, and will have require is not defined error in browser
+UMD works for in browser and Node.JS 
+
+
 Export as close to top-level as possible
 
 Consumers of your module should have as little friction as possible when using things that you export. Adding too many levels of nesting tends to be cumbersome, so think carefully about how you want to structure things.

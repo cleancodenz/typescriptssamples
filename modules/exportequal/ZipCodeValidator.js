@@ -9,15 +9,24 @@ When importing a module using export =, TypeScript-specific import let = require
 
  *
  * **/
-"use strict";
-var numberRegexp = /^[0-9]+$/;
-var ZipCodeValidator = (function () {
-    function ZipCodeValidator() {
+(function (factory) {
+    if (typeof module === 'object' && typeof module.exports === 'object') {
+        var v = factory(require, exports); if (v !== undefined) module.exports = v;
     }
-    ZipCodeValidator.prototype.isAcceptable = function (s) {
-        return s.length === 5 && numberRegexp.test(s);
-    };
+    else if (typeof define === 'function' && define.amd) {
+        define(["require", "exports"], factory);
+    }
+})(function (require, exports) {
+    "use strict";
+    var numberRegexp = /^[0-9]+$/;
+    var ZipCodeValidator = (function () {
+        function ZipCodeValidator() {
+        }
+        ZipCodeValidator.prototype.isAcceptable = function (s) {
+            return s.length === 5 && numberRegexp.test(s);
+        };
+        return ZipCodeValidator;
+    }());
     return ZipCodeValidator;
-}());
-module.exports = ZipCodeValidator;
+});
 //# sourceMappingURL=ZipCodeValidator.js.map
